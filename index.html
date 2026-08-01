@@ -1,29 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Surafel Kaleab — Full Stack Developer</title>
-<!-- SEO -->
-<meta name="description" content="Surafel Kaleab is a full stack developer specializing in creating modern web applications." />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tibebu - Ecommerce Manager</title>
+<meta name="description" content="Tibebu is an Ecommerce Manager focused on WooCommerce, Google Merchant Centre, catalogue management, SEO, and product feed optimisation." />
 
-<!-- Open Graph -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Surafel Kaleab — Full Stack Developer" />
-<meta property="og:description" content="Surafel Kaleab is a full stack developer specializing in creating modern web applications." />
-<meta property="og:url" content="https://surafel-portfolio-pi.vercel.app/" />
-<meta property="og:image" content="https://surafel-portfolio-pi.vercel.app/assets/images/sk_logo_dark.png" />
+<meta property="og:title" content="Tibebu - Ecommerce Manager" />
+<meta property="og:description" content="Tibebu manages WooCommerce websites, optimises Google Merchant Centre feeds, and drives ecommerce growth through catalogue management and SEO." />
+<meta property="og:image" content="assets/images/sk_logo_dark.svg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 
-<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Surafel Kaleab — Full Stack Developer" />
-<meta name="twitter:description" content="Surafel Kaleab is a full stack developer specializing in creating modern web applications." />
-<meta name="twitter:image" content="https://surafel-portfolio-pi.vercel.app/assets/images/sk_logo_dark.png" />
+<meta name="twitter:title" content="Tibebu - Ecommerce Manager" />
+<meta name="twitter:description" content="WooCommerce, WordPress, Google Merchant Centre, catalogue management, SEO, and product feed optimisation." />
+<meta name="twitter:image" content="assets/images/sk_logo_dark.svg" />
 
-    <!-- Add favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon/favicon.ico" />
+<link rel="icon" type="image/x-icon" href="assets/images/favicon/favicon.ico" />
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,16 +57,45 @@ tailwind.config = {
 <style>
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { background: #f5f2eb; color: #0d0d0d; font-family: 'Syne', sans-serif; cursor: none; }
+  html, body { overflow-x: hidden; }
+  body {
+    background: #f5f2eb;
+    color: #0d0d0d;
+    font-family: 'Syne', sans-serif;
+    cursor: none;
+  }
 
-  /* custom cursor */
-  .cursor { position: fixed; width: 10px; height: 10px; background: #c8f04c; border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.1s; mix-blend-mode: multiply; }
-  .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1.5px solid #0d0d0d; border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: all 0.18s cubic-bezier(0.16,1,0.3,1); }
+  .cursor {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: #c8f04c;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s;
+    mix-blend-mode: multiply;
+  }
 
-  /* noise overlay */
+  .cursor-ring {
+    position: fixed;
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid #0d0d0d;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: all 0.18s cubic-bezier(0.16,1,0.3,1);
+  }
+
   body::before {
     content: '';
-    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
     opacity: 0.5;
   }
@@ -84,476 +108,449 @@ tailwind.config = {
     color: #6b6b6b;
   }
 
-  /* Marquee */
-  .marquee-track { display: flex; width: max-content; animation: marquee 28s linear infinite; }
-  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 28s linear infinite;
+  }
 
-  /* Skill pill hover */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
   .skill-pill { transition: all 0.2s; }
   .skill-pill:hover { background: #c8f04c; color: #0d0d0d; transform: translateY(-2px); }
 
-  /* Project card */
-  .proj-card { transition: all 0.3s cubic-bezier(0.16,1,0.3,1); border: 1px solid #e0ddd6; }
-  .proj-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(0,0,0,0.09); border-color: #c8f04c; }
+  .proj-card {
+    transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+    border: 1px solid #e0ddd6;
+  }
+  .proj-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 48px rgba(0,0,0,0.09);
+    border-color: #c8f04c;
+  }
   .proj-card:hover .proj-arrow { transform: translate(3px,-3px); }
   .proj-arrow { transition: transform 0.25s; }
 
-  /* Timeline dot */
-  .timeline-dot { width: 8px; height: 8px; background: #c8f04c; border-radius: 50%; border: 2px solid #0d0d0d; flex-shrink: 0; margin-top: 6px; }
-
-  /* Nav link */
-  .nav-link { position: relative; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
-  .nav-link::after { content:''; position:absolute; bottom:-2px; left:0; width:0; height:1px; background:#c8f04c; transition: width 0.3s; }
+  .nav-link {
+    position: relative;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #c8f04c;
+    transition: width 0.3s;
+  }
   .nav-link:hover::after { width: 100%; }
 
-  /* Stagger animations */
-  [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-  [data-reveal].visible { opacity: 1; transform: translateY(0); }
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  [data-reveal].visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   .hero-name {
-    font-size: clamp(52px, 10vw, 120px);
+    font-size: clamp(42px, 10vw, 120px);
     font-weight: 800;
     line-height: 0.9;
     letter-spacing: -0.03em;
   }
 
-  /* Big decorative number */
-  .big-num { font-size: clamp(80px, 15vw, 160px); font-weight: 800; color: transparent; -webkit-text-stroke: 1px #e0ddd6; line-height: 1; pointer-events: none; }
+  .big-num {
+    font-size: clamp(80px, 15vw, 160px);
+    font-weight: 800;
+    color: transparent;
+    -webkit-text-stroke: 1px #e0ddd6;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  @media (pointer: coarse), (max-width: 768px) {
+    body {
+      cursor: auto;
+    }
+
+    .cursor,
+    .cursor-ring {
+      display: none;
+    }
+
+    .hero-name {
+      font-size: clamp(36px, 13vw, 72px);
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+    }
+  }
 </style>
 </head>
 <body>
 
-<!-- Custom Cursor -->
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- NAV -->
-<nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-5 bg-paper/80 backdrop-blur-md border-b border-border">
-  <a href="#hero" class="font-display font-800 text-sm tracking-widest uppercase">SK<span class="text-accent">.</span></a>
+<nav class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5 bg-paper/80 backdrop-blur-md border-b border-border">
+  <a href="#hero" class="font-display font-800 text-sm tracking-widest uppercase">TB<span class="text-accent">.</span></a>
   <div class="hidden md:flex items-center gap-8">
-    <a href="#about" class="nav-link text-ink hover:text-ink">About</a>
-    <a href="#experience" class="nav-link text-ink hover:text-ink">Experience</a>
-    <a href="#projects" class="nav-link text-ink hover:text-ink">Projects</a>
+    <a href="#about" class="nav-link text-ink hover:text-ink">Profile</a>
+    <a href="#projects" class="nav-link text-ink hover:text-ink">Work</a>
+    <a href="#stack" class="nav-link text-ink hover:text-ink">Stack</a>
     <a href="#contact" class="nav-link text-ink hover:text-ink">Contact</a>
-    <!-- <a href="https://github.com/SuraKal" target="_blank" class="nav-link text-ink hover:text-ink">GitHub ↗</a> -->
   </div>
-  <a href="mailto:surafelkaleab68@gmail.com" class="hidden md:flex items-center gap-2 bg-ink text-paper px-4 py-2 text-xs font-mono tracking-widest uppercase hover:bg-accent hover:text-ink transition-all duration-300">
-    Let's Talk →
+  <a href="mailto:tibebdl@gmail.com" class="hidden md:flex items-center gap-2 bg-ink text-paper px-4 py-2 text-xs font-mono tracking-widest uppercase hover:bg-accent hover:text-ink transition-all duration-300">
+    Email Tibebu ->
   </a>
 </nav>
 
-<!-- HERO -->
-<section id="hero" class="relative min-h-screen flex flex-col justify-end px-8 md:px-16 pb-20 pt-32 overflow-hidden">
-  <!-- Background grid -->
+<section id="hero" class="relative min-h-screen flex items-start md:items-end px-5 sm:px-8 md:px-16 pb-16 md:pb-20 pt-24 sm:pt-28 md:pt-32 overflow-hidden">
   <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(#0d0d0d 1px, transparent 1px), linear-gradient(90deg, #0d0d0d 1px, transparent 1px); background-size: 60px 60px;"></div>
-
-  <!-- Floating accent circle -->
   <div class="absolute top-32 right-16 w-64 h-64 rounded-full bg-accent opacity-20 blur-3xl"></div>
   <div class="absolute bottom-40 left-1/3 w-40 h-40 rounded-full bg-accent opacity-10 blur-2xl"></div>
 
   <div class="relative z-10 max-w-7xl mx-auto w-full">
-    <div class="section-label mb-6 animate-fade-in">[ Full Stack Software Developer ]</div>
-
-    <h1 class="hero-name font-display text-ink mb-8 animate-fade-up">
-      Surafel<br>
-      <span class="relative">
-        Kaleab
-        <span class="absolute -bottom-2 left-0 h-3 bg-accent w-full opacity-40 -z-10 translate-y-1"></span>
-      </span>
-    </h1>
-
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
-      <p class="max-w-md text-muted font-mono text-sm leading-relaxed animate-fade-up" style="animation-delay:0.15s; opacity:0; animation-fill-mode:forwards;">
-        Building elegant, high-performance web applications from front to back. Based in Addis Ababa, Ethiopia — working with Laravel, Vue, React, Python & more.
+    <div class="max-w-4xl">
+      <div class="section-label mb-6 animate-fade-in">[ Ecommerce Manager ]</div>
+      <h1 class="hero-name font-display text-ink mb-8 animate-fade-up sm:max-w-none">
+        <span class="block">Tibebu</span>
+        <span class="hidden sm:block relative">
+          Ecommerce
+          <span class="absolute -bottom-2 left-0 h-3 bg-accent w-full opacity-40 -z-10 translate-y-1"></span>
+        </span>
+      </h1>
+      <p class="max-w-2xl text-muted font-mono text-sm md:text-base leading-relaxed animate-fade-up max-w-[34rem]" style="animation-delay:0.15s; opacity:0; animation-fill-mode:forwards;">
+        Managing WooCommerce and WordPress stores, optimising Google Merchant Centre product feeds, maintaining ecommerce catalogues, and improving SEO to drive growth across OTW Trading.
       </p>
-      <div class="flex items-center gap-6 animate-fade-up" style="animation-delay:0.25s; opacity:0; animation-fill-mode:forwards;">
-        <a href="https://linkedin.com/in/surafel-kaleab" target="_blank" class="font-mono text-xs uppercase tracking-widest border-b border-ink hover:border-accent hover:text-muted transition-all pb-1">LinkedIn ↗</a>
-        <!-- <a href="https://github.com/SuraKal" target="_blank" class="font-mono text-xs uppercase tracking-widest border-b border-ink hover:border-accent hover:text-muted transition-all pb-1">GitHub ↗</a> -->
-        <a href="assets/Surafel Resume.pdf" download class="font-mono text-xs uppercase tracking-widest border-b border-accent text-accent hover:border-ink hover:text-ink transition-all pb-1">↓ Resume</a>
-        <a href="#projects" class="font-mono text-xs uppercase tracking-widest border-b border-ink hover:border-accent hover:text-muted transition-all pb-1">See Work ↓</a>
+
+      <div class="flex flex-wrap items-center gap-3 sm:gap-4 mt-8 animate-fade-up" style="animation-delay:0.25s; opacity:0; animation-fill-mode:forwards;">
+        <a href="mailto:tibebdl@gmail.com" class="font-mono text-xs uppercase tracking-widest border-b border-ink hover:border-accent hover:text-muted transition-all pb-1">Email</a>
+        <a href="assets/Tibebu CV.pdf" download class="font-mono text-xs uppercase tracking-widest border-b border-accent text-accent hover:border-ink hover:text-ink transition-all pb-1">Download CV</a>
+        <a href="#projects" class="font-mono text-xs uppercase tracking-widest border-b border-ink hover:border-accent hover:text-muted transition-all pb-1">See Work</a>
+      </div>
+
+      <div class="mt-12 sm:mt-16 pt-8 border-t border-border grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl animate-fade-up" style="animation-delay:0.35s; opacity:0; animation-fill-mode:forwards;">
+        <div>
+          <div class="text-xl sm:text-2xl font-display font-800">WooCommerce</div>
+          <div class="section-label mt-1">Store operations</div>
+        </div>
+        <div>
+          <div class="text-xl sm:text-2xl font-display font-800">Merchant Centre</div>
+          <div class="section-label mt-1">Feed optimisation</div>
+        </div>
+        <div>
+          <div class="text-xl sm:text-2xl font-display font-800">SEO + Growth</div>
+          <div class="section-label mt-1">Visibility focus</div>
+        </div>
       </div>
     </div>
 
-    <!-- Stats row -->
-    <div class="mt-16 pt-8 border-t border-border grid grid-cols-3 gap-4 max-w-lg animate-fade-up" style="animation-delay:0.35s; opacity:0; animation-fill-mode:forwards;">
-      <div>
-        <div class="text-3xl font-display font-800">4<span class="text-accent">+</span></div>
-        <div class="section-label mt-1">Years Exp.</div>
+    <aside class="mt-10 sm:mt-12 bg-white/50 border border-border rounded-2xl p-5 sm:p-6 md:p-8 shadow-[0_24px_80px_rgba(0,0,0,0.06)] animate-fade-up max-w-4xl" style="animation-delay:0.22s; opacity:0; animation-fill-mode:forwards;">
+      <div class="section-label mb-4">[ Focus ]</div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="flex items-start gap-4 p-4 rounded-xl bg-paper border border-border min-w-0">
+          <div class="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center font-display font-800">1</div>
+          <div>
+            <div class="font-display font-700">WooCommerce + WordPress</div>
+            <div class="font-mono text-sm text-muted mt-1 break-words">Keeping storefronts tidy, current, and conversion-ready.</div>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-4 rounded-xl bg-paper border border-border min-w-0">
+          <div class="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center font-display font-800">2</div>
+          <div>
+            <div class="font-display font-700">Merchant feed health</div>
+            <div class="font-mono text-sm text-muted mt-1 break-words">Optimising product data for Google Merchant Centre and shopping visibility.</div>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-4 rounded-xl bg-paper border border-border min-w-0">
+          <div class="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center font-display font-800">3</div>
+          <div>
+            <div class="font-display font-700">Catalogue and SEO</div>
+            <div class="font-mono text-sm text-muted mt-1 break-words">Improving product discovery with structured catalogues and on-page SEO.</div>
+          </div>
+        </div>
       </div>
-      <div>
-        <div class="text-3xl font-display font-800">7<span class="text-accent">+</span></div>
-        <div class="section-label mt-1">Projects</div>
-      </div>
-      <div>
-        <div class="text-3xl font-display font-800">4</div>
-        <div class="section-label mt-1">Companies</div>
-      </div>
-    </div>
+    </aside>
   </div>
 
-  <!-- Scroll indicator -->
   <div class="absolute bottom-8 right-8 flex flex-col items-center gap-2 animate-fade-in" style="animation-delay:0.8s; opacity:0; animation-fill-mode:forwards;">
     <span class="section-label" style="writing-mode:vertical-rl;">Scroll</span>
-    <div class="w-px h-12 bg-muted/40 relative overflow-hidden"><div class="absolute top-0 w-full bg-accent animate-[slide_1.6s_ease-in-out_infinite]" style="height:50%; animation: scrollLine 1.6s ease-in-out infinite;"></div></div>
+    <div class="w-px h-12 bg-muted/40 relative overflow-hidden">
+      <div class="absolute top-0 w-full bg-accent" style="height:50%; animation: scrollLine 1.6s ease-in-out infinite;"></div>
+    </div>
   </div>
 </section>
 
-<!-- SKILLS MARQUEE -->
 <div class="bg-ink text-paper py-4 overflow-hidden border-y-2 border-accent relative z-10">
   <div class="marquee-track">
     <div class="flex items-center gap-8 pr-8 font-mono text-xs tracking-widest uppercase text-paper/70">
-      <span>Laravel</span><span class="text-accent">✦</span>
-      <span>Livewire</span><span class="text-accent">✦</span>
-      <span>Alpine.js</span><span class="text-accent">✦</span>
-      <span>Tailwind CSS</span><span class="text-accent">✦</span>
-      <span>Vue.js</span><span class="text-accent">✦</span>
-      <span>React.js</span><span class="text-accent">✦</span>
-      <span>Python</span><span class="text-accent">✦</span>
-      <span>Django</span><span class="text-accent">✦</span>
-      <span>MySQL</span><span class="text-accent">✦</span>
-      <span>PostgreSQL</span><span class="text-accent">✦</span>
-      <span>MongoDB</span><span class="text-accent">✦</span>
-      <span>RESTful APIs</span><span class="text-accent">✦</span>
-      <span>Git</span><span class="text-accent">✦</span>
-      <span>Filament</span><span class="text-accent">✦</span>
-      <span>Bootstrap</span><span class="text-accent">✦</span>
-      <span>JavaScript</span><span class="text-accent">✦</span>
+      <span>WooCommerce</span><span class="text-accent">* </span>
+      <span>WordPress</span><span class="text-accent">* </span>
+      <span>Google Merchant Centre</span><span class="text-accent">* </span>
+      <span>Product Feeds</span><span class="text-accent">* </span>
+      <span>Catalogue Management</span><span class="text-accent">* </span>
+      <span>SEO</span><span class="text-accent">* </span>
+      <span>GA4</span><span class="text-accent">* </span>
+      <span>Search Console</span><span class="text-accent">* </span>
+      <span>Inventory</span><span class="text-accent">* </span>
+      <span>Product Data</span><span class="text-accent">* </span>
+      <span>Conversion Tracking</span><span class="text-accent">* </span>
+      <span>Reporting</span><span class="text-accent">* </span>
     </div>
-    <!-- duplicate for infinite loop -->
     <div class="flex items-center gap-8 pr-8 font-mono text-xs tracking-widest uppercase text-paper/70">
-      <span>Laravel</span><span class="text-accent">✦</span>
-      <span>Livewire</span><span class="text-accent">✦</span>
-      <span>Alpine.js</span><span class="text-accent">✦</span>
-      <span>Tailwind CSS</span><span class="text-accent">✦</span>
-      <span>Vue.js</span><span class="text-accent">✦</span>
-      <span>React.js</span><span class="text-accent">✦</span>
-      <span>Python</span><span class="text-accent">✦</span>
-      <span>Django</span><span class="text-accent">✦</span>
-      <span>MySQL</span><span class="text-accent">✦</span>
-      <span>PostgreSQL</span><span class="text-accent">✦</span>
-      <span>MongoDB</span><span class="text-accent">✦</span>
-      <span>RESTful APIs</span><span class="text-accent">✦</span>
-      <span>Git</span><span class="text-accent">✦</span>
-      <span>Filament</span><span class="text-accent">✦</span>
-      <span>Bootstrap</span><span class="text-accent">✦</span>
-      <span>JavaScript</span><span class="text-accent">✦</span>
+      <span>WooCommerce</span><span class="text-accent">* </span>
+      <span>WordPress</span><span class="text-accent">* </span>
+      <span>Google Merchant Centre</span><span class="text-accent">* </span>
+      <span>Product Feeds</span><span class="text-accent">* </span>
+      <span>Catalogue Management</span><span class="text-accent">* </span>
+      <span>SEO</span><span class="text-accent">* </span>
+      <span>GA4</span><span class="text-accent">* </span>
+      <span>Search Console</span><span class="text-accent">* </span>
+      <span>Inventory</span><span class="text-accent">* </span>
+      <span>Product Data</span><span class="text-accent">* </span>
+      <span>Conversion Tracking</span><span class="text-accent">* </span>
+      <span>Reporting</span><span class="text-accent">* </span>
     </div>
   </div>
 </div>
 
-<!-- EXPERIENCE -->
-<section id="experience" class="relative px-8 md:px-16 py-24 max-w-7xl mx-auto w-full">
+<section id="about" class="relative px-8 md:px-16 py-24 max-w-7xl mx-auto w-full">
   <div class="flex items-start justify-between mb-16" data-reveal>
     <div>
-      <div class="section-label mb-3">[ 02 — Experience ]</div>
-      <h2 class="text-4xl md:text-5xl font-display font-800 leading-none">Where I've<br><span class="text-muted">Worked</span></h2>
+      <div class="section-label mb-3">[ 02 - Profile ]</div>
+      <h2 class="text-4xl md:text-5xl font-display font-800 leading-none">Ecommerce Manager<br><span class="text-muted">focused on growth</span></h2>
     </div>
     <div class="big-num hidden md:block">02</div>
   </div>
 
-  <div class="space-y-0">
-
-    <!-- Job 1 -->
-    <div class="group border-t border-border py-8 grid md:grid-cols-[200px_1fr_160px] gap-6 items-start hover:bg-ink/[0.02] transition-colors px-2 -mx-2 rounded" data-reveal>
-      <div>
-        <div class="section-label mb-1">Mar 2025 – May 2026</div>
-        <div class="text-xs font-mono text-muted mt-1">Nael Production</div>
-      </div>
-      <div>
-        <h3 class="text-xl font-display font-700 mb-3 group-hover:text-accent transition-colors">Senior Software Developer</h3>
-        <p class="text-sm text-muted leading-relaxed font-mono">Built scalable web apps with Laravel, Filament & Alpine.js. Led code reviews, established quality standards, and authored technical documentation. Maintained MySQL and MongoDB databases for integrity and scalability.</p>
-      </div>
-      <div class="flex flex-wrap gap-2">
-        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">Laravel</span>
-        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">Filament</span>
-        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">Alpine.js</span>
-        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">MySQL</span>
+  <div class="grid md:grid-cols-2 gap-4">
+    <div class="group border border-border rounded-lg p-6 bg-white/50 hover:border-accent transition-colors" data-reveal>
+      <div class="section-label mb-3">WooCommerce + WordPress</div>
+      <h3 class="text-xl font-display font-700 mb-3">Store Management</h3>
+      <p class="text-sm text-muted leading-relaxed font-mono">Managing WooCommerce websites, updating storefront content, maintaining plugins, and keeping the shopping experience clean, fast, and reliable.</p>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">WooCommerce</span>
+        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">WordPress</span>
+        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">Storefronts</span>
       </div>
     </div>
 
-    <!-- Job 2 -->
-    <div class="group border-t border-border py-8 grid md:grid-cols-[200px_1fr_160px] gap-6 items-start hover:bg-ink/[0.02] transition-colors px-2 -mx-2 rounded" data-reveal>
-      <div>
-        <div class="section-label mb-1">Jan 2025 – Feb 2025</div>
-        <div class="text-xs font-mono text-muted mt-1">Nana Digital Ads</div>
-      </div>
-      <div>
-        <h3 class="text-xl font-display font-700 mb-3 group-hover:text-accent transition-colors">Software Developer</h3>
-        <p class="text-sm text-muted leading-relaxed font-mono">Developed responsive TALL Stack apps with mobile-first design. Collaborated with designers on pixel-perfect UIs and debugged complex front-end and back-end issues across production systems.</p>
-      </div>
-      <div class="flex flex-wrap gap-2">
-        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">Tailwind</span>
-        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">Livewire</span>
-        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">Laravel</span>
+    <div class="group border border-border rounded-lg p-6 bg-white/50 hover:border-accent transition-colors" data-reveal>
+      <div class="section-label mb-3">Google Merchant Centre</div>
+      <h3 class="text-xl font-display font-700 mb-3">Feed Optimisation</h3>
+      <p class="text-sm text-muted leading-relaxed font-mono">Preparing and optimising product feeds, reducing disapprovals, and keeping Merchant Centre listings aligned with inventory, pricing, and policy requirements.</p>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">Feeds</span>
+        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">Diagnostics</span>
+        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">Merchant Centre</span>
       </div>
     </div>
 
-    <!-- Job 3 -->
-    <div class="group border-t border-border py-8 grid md:grid-cols-[200px_1fr_160px] gap-6 items-start hover:bg-ink/[0.02] transition-colors px-2 -mx-2 rounded" data-reveal>
-      <div>
-        <div class="section-label mb-1">Sep 2024 – Dec 2024</div>
-        <div class="text-xs font-mono text-muted mt-1">Two Z Business PLC</div>
-      </div>
-      <div>
-        <h3 class="text-xl font-display font-700 mb-3 group-hover:text-accent transition-colors">Full Stack Developer</h3>
-        <p class="text-sm text-muted leading-relaxed font-mono">Architected a comprehensive HR Management System in Laravel covering payroll, attendance & employee records. Built secure RESTful APIs and optimized MySQL schemas for performance and scalability.</p>
-      </div>
-      <div class="flex flex-wrap gap-2">
-        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">Laravel</span>
-        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">REST API</span>
-        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">MySQL</span>
+    <div class="group border border-border rounded-lg p-6 bg-white/50 hover:border-accent transition-colors" data-reveal>
+      <div class="section-label mb-3">Catalogue Management</div>
+      <h3 class="text-xl font-display font-700 mb-3">Product Data Operations</h3>
+      <p class="text-sm text-muted leading-relaxed font-mono">Organising product catalogues with clear titles, attributes, pricing, variants, and inventory updates so listings stay accurate and easy to shop.</p>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">Catalogues</span>
+        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">Inventory</span>
+        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">Product Data</span>
       </div>
     </div>
 
-    <!-- Job 4 -->
-    <div class="group border-t border-b border-border py-8 grid md:grid-cols-[200px_1fr_160px] gap-6 items-start hover:bg-ink/[0.02] transition-colors px-2 -mx-2 rounded" data-reveal>
-      <div>
-        <div class="section-label mb-1">Jul 2023 – Aug 2024</div>
-        <div class="text-xs font-mono text-muted mt-1">Everlink Digital Technologies</div>
-      </div>
-      <div>
-        <h3 class="text-xl font-display font-700 mb-3 group-hover:text-accent transition-colors">Web Developer</h3>
-        <p class="text-sm text-muted leading-relaxed font-mono">Contributed to a large-scale ERP system built with Vanilla PHP, spanning Transportation, HR, and Blacklisting modules. Managed fleet logistics, employee records, leave tracking, and enforced restricted entity policies platform-wide.</p>
-      </div>
-      <div class="flex flex-wrap gap-2">
-        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">PHP</span>
-        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">ERP</span>
-        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">MySQL</span>
+    <div class="group border border-border rounded-lg p-6 bg-white/50 hover:border-accent transition-colors" data-reveal>
+      <div class="section-label mb-3">SEO + Growth</div>
+      <h3 class="text-xl font-display font-700 mb-3">Visibility and Performance</h3>
+      <p class="text-sm text-muted leading-relaxed font-mono">Applying SEO best practices, improving product discoverability, and supporting ecommerce growth through better content structure, feeds, and on-page optimisation.</p>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">SEO</span>
+        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">Product Feeds</span>
+        <span class="skill-pill text-[10px] font-mono uppercase tracking-wider border border-border px-2 py-1 rounded-sm">Growth</span>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects" class="bg-ink text-paper px-8 md:px-16 py-24">
   <div class="max-w-7xl mx-auto">
     <div class="flex items-start justify-between mb-16" data-reveal>
       <div>
-        <div class="section-label text-paper/40 mb-3">[ 03 — Work ]</div>
-        <h2 class="text-4xl md:text-5xl font-display font-800 leading-none">Some of the<br><span class="text-accent">Projects</span></h2>
+        <div class="section-label text-paper/40 mb-3">[ 03 - Selected Work ]</div>
+        <h2 class="text-4xl md:text-5xl font-display font-800 leading-none">Commerce<br><span class="text-accent">Projects</span></h2>
       </div>
       <div class="big-num hidden md:block text-paper/5">03</div>
     </div>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-
-      <!-- Project cards -->
       <a href="https://kangaroodevelopments.com/" target="_blank" class="proj-card bg-white/5 rounded-lg overflow-hidden block group" data-reveal>
-        <div class="relative w-full h-54 overflow-hidden bg-white/5">
+        <div class="relative w-full h-56 overflow-hidden bg-white/5">
           <img src="assets/images/projects/kangaroodevelopments.png" alt="Kangaroo Developments preview" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="absolute inset-0 items-center justify-center flex-col gap-2 hidden" style="background: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 12px); border-bottom: 1px solid rgba(255,255,255,0.08);">
-            <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center"><span class="text-white/20 text-lg">⊞</span></div>
+            <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center"><span class="text-white/20 text-lg">+</span></div>
             <span class="font-mono text-[10px] text-white/20 uppercase tracking-widest">Add thumbnail</span>
-            <span class="font-mono text-[9px] text-white/10">assets/images/projects/kangaroo.jpg</span>
           </div>
         </div>
         <div class="p-6">
           <div class="flex items-start justify-between mb-4">
-            <span class="section-label text-paper/30">Real Estate</span>
-            <span class="proj-arrow text-accent text-xl">↗</span>
+            <span class="section-label text-paper/30">Web Presence</span>
+            <span class="proj-arrow text-accent text-xl">-></span>
           </div>
           <h3 class="text-lg font-display font-700 mb-3 group-hover:text-accent transition-colors">Kangaroo Developments</h3>
-          <p class="text-sm text-paper/50 font-mono leading-relaxed">End-to-end real estate platform — client site & admin CMS with listings, search, filtering and inquiry management.</p>
+          <p class="text-sm text-paper/50 font-mono leading-relaxed">Content-driven website with CMS-managed listings, structured pages, and a polished browsing experience.</p>
           <div class="mt-5 pt-4 border-t border-white/10 flex gap-2 flex-wrap">
-            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">Laravel</span>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">CMS</span>
             <span class="text-[10px] text-paper/20">·</span>
-            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">Filament</span>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">SEO</span>
             <span class="text-[10px] text-paper/20">·</span>
-            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">MySQL</span>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">Responsive</span>
           </div>
         </div>
       </a>
 
       <a href="https://melat.darihabesha.com/" target="_blank" class="proj-card bg-white/5 rounded-lg overflow-hidden block group" data-reveal>
-        <div class="relative w-full h-54 overflow-hidden bg-white/5">
+        <div class="relative w-full h-56 overflow-hidden bg-white/5">
           <img src="assets/images/projects/melat.png" alt="Melat Perfume preview" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="absolute inset-0 items-center justify-center flex-col gap-2 hidden" style="background: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 12px); border-bottom: 1px solid rgba(255,255,255,0.08);">
-            <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center"><span class="text-white/20 text-lg">⊞</span></div>
+            <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center"><span class="text-white/20 text-lg">+</span></div>
             <span class="font-mono text-[10px] text-white/20 uppercase tracking-widest">Add thumbnail</span>
-            <span class="font-mono text-[9px] text-white/10">assets/images/projects/melat.png</span>
           </div>
         </div>
         <div class="p-6">
           <div class="flex items-start justify-between mb-4">
-            <span class="section-label text-paper/30">E-Commerce</span>
-            <span class="proj-arrow text-accent text-xl">↗</span>
+            <span class="section-label text-paper/30">Ecommerce</span>
+            <span class="proj-arrow text-accent text-xl">-></span>
           </div>
           <h3 class="text-lg font-display font-700 mb-3 group-hover:text-accent transition-colors">Melat Perfume</h3>
-          <p class="text-sm text-paper/50 font-mono leading-relaxed">E-commerce store with product customization, secure checkout, inventory tracking and admin dashboard for product management.</p>
+          <p class="text-sm text-paper/50 font-mono leading-relaxed">Ecommerce store with product catalogue management, secure checkout, and inventory tracking workflows.</p>
           <div class="mt-5 pt-4 border-t border-white/10 flex gap-2 flex-wrap">
-            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">Laravel</span>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">WooCommerce</span>
             <span class="text-[10px] text-paper/20">·</span>
-            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">Livewire</span>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">Feeds</span>
             <span class="text-[10px] text-paper/20">·</span>
-            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">Tailwind</span>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">Catalogues</span>
           </div>
         </div>
       </a>
 
       <a href="https://theamentrading.com/" target="_blank" class="proj-card bg-white/5 rounded-lg overflow-hidden block group" data-reveal>
-        <div class="relative w-full h-54 overflow-hidden bg-white/5">
+        <div class="relative w-full h-56 overflow-hidden bg-white/5">
           <img src="assets/images/projects/amentrading.png" alt="The Amen Trading preview" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="absolute inset-0 items-center justify-center flex-col gap-2 hidden" style="background: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 12px); border-bottom: 1px solid rgba(255,255,255,0.08);">
-            <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center"><span class="text-white/20 text-lg">⊞</span></div>
+            <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center"><span class="text-white/20 text-lg">+</span></div>
             <span class="font-mono text-[10px] text-white/20 uppercase tracking-widest">Add thumbnail</span>
-            <span class="font-mono text-[9px] text-white/10">assets/images/projects/amentrading.png</span>
           </div>
         </div>
         <div class="p-6">
           <div class="flex items-start justify-between mb-4">
             <span class="section-label text-paper/30">Trading</span>
-            <span class="proj-arrow text-accent text-xl">↗</span>
+            <span class="proj-arrow text-accent text-xl">-></span>
           </div>
           <h3 class="text-lg font-display font-700 mb-3 group-hover:text-accent transition-colors">The Amen Trading</h3>
-          <p class="text-sm text-paper/50 font-mono leading-relaxed">Full-stack trading platform built end-to-end — storefront, product management and order processing system.</p>
+          <p class="text-sm text-paper/50 font-mono leading-relaxed">Trading storefront with product management, order handling, and a clear structure for sales operations.</p>
           <div class="mt-5 pt-4 border-t border-white/10 flex gap-2 flex-wrap">
-            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">Laravel</span>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">Storefront</span>
             <span class="text-[10px] text-paper/20">·</span>
-            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">Alpine.js</span>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">Operations</span>
             <span class="text-[10px] text-paper/20">·</span>
-            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">MySQL</span>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">Products</span>
           </div>
         </div>
       </a>
 
       <a href="https://naelproduction.darihabesha.com/" target="_blank" class="proj-card bg-white/5 rounded-lg overflow-hidden block group" data-reveal>
-        <div class="relative w-full h-54 overflow-hidden bg-white/5">
+        <div class="relative w-full h-56 overflow-hidden bg-white/5">
           <img src="assets/images/projects/naelproduction.png" alt="Nael Production preview" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
           <div class="absolute inset-0 items-center justify-center flex-col gap-2 hidden" style="background: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 12px); border-bottom: 1px solid rgba(255,255,255,0.08);">
-            <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center"><span class="text-white/20 text-lg">⊞</span></div>
+            <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center"><span class="text-white/20 text-lg">+</span></div>
             <span class="font-mono text-[10px] text-white/20 uppercase tracking-widest">Add thumbnail</span>
-            <span class="font-mono text-[9px] text-white/10">assets/images/projects/naelproduction.png</span>
           </div>
         </div>
         <div class="p-6">
           <div class="flex items-start justify-between mb-4">
-            <span class="section-label text-paper/30">Agency</span>
-            <span class="proj-arrow text-accent text-xl">↗</span>
+            <span class="section-label text-paper/30">SEO</span>
+            <span class="proj-arrow text-accent text-xl">-></span>
           </div>
           <h3 class="text-lg font-display font-700 mb-3 group-hover:text-accent transition-colors">Nael Production Site</h3>
-          <p class="text-sm text-paper/50 font-mono leading-relaxed">Creative agency platform with SEO optimization, responsive design and social media integration for a branding studio.</p>
+          <p class="text-sm text-paper/50 font-mono leading-relaxed">Brand site with SEO-friendly structure, responsive design, and social media integration.</p>
           <div class="mt-5 pt-4 border-t border-white/10 flex gap-2 flex-wrap">
-            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">Laravel</span>
-            <span class="text-[10px] text-paper/20">·</span>
             <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">SEO</span>
             <span class="text-[10px] text-paper/20">·</span>
-            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">Tailwind</span>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">Responsive</span>
+            <span class="text-[10px] text-paper/20">·</span>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">Content</span>
           </div>
         </div>
       </a>
-
-      <a href="https://asttrading.org/" target="_blank" class="proj-card bg-white/5 rounded-lg overflow-hidden block group" data-reveal>
-        <div class="relative w-full h-54 overflow-hidden bg-white/5">
-          <img src="assets/images/projects/asttrading.png" alt="AST E-Commerce preview" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="absolute inset-0 items-center justify-center flex-col gap-2 hidden" style="background: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 12px); border-bottom: 1px solid rgba(255,255,255,0.08);">
-            <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center"><span class="text-white/20 text-lg">⊞</span></div>
-            <span class="font-mono text-[10px] text-white/20 uppercase tracking-widest">Add thumbnail</span>
-            <span class="font-mono text-[9px] text-white/10">assets/images/projects/asttrading.png</span>
-          </div>
-        </div>
-        <div class="p-6">
-          <div class="flex items-start justify-between mb-4">
-            <span class="section-label text-paper/30">E-Commerce</span>
-            <span class="proj-arrow text-accent text-xl">↗</span>
-          </div>
-          <h3 class="text-lg font-display font-700 mb-3 group-hover:text-accent transition-colors">AST E-Commerce</h3>
-          <p class="text-sm text-paper/50 font-mono leading-relaxed">Furniture store with 3D visualization, room browsing, fabric customization and a full admin panel for inventory management.</p>
-          <div class="mt-5 pt-4 border-t border-white/10 flex gap-2 flex-wrap">
-            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">Laravel</span>
-            <span class="text-[10px] text-paper/20">·</span>
-            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">3D</span>
-            <span class="text-[10px] text-paper/20">·</span>
-            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">Filament</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="https://darihabesha.com/" target="_blank" class="proj-card bg-white/5 rounded-lg overflow-hidden block group" data-reveal>
-        <div class="relative w-full h-54 overflow-hidden bg-white/5">
-          <img src="assets/images/projects/darihabesha.png" alt="Dari Habesha preview" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="absolute inset-0 items-center justify-center flex-col gap-2 hidden" style="background: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 12px); border-bottom: 1px solid rgba(255,255,255,0.08);">
-            <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center"><span class="text-white/20 text-lg">⊞</span></div>
-            <span class="font-mono text-[10px] text-white/20 uppercase tracking-widest">Add thumbnail</span>
-            <span class="font-mono text-[9px] text-white/10">assets/images/projects/darihabesha.png</span>
-          </div>
-        </div>
-        <div class="p-6">
-          <div class="flex items-start justify-between mb-4">
-            <span class="section-label text-paper/30">Fashion</span>
-            <span class="proj-arrow text-accent text-xl">↗</span>
-          </div>
-          <h3 class="text-lg font-display font-700 mb-3 group-hover:text-accent transition-colors">Dari Habesha</h3>
-          <p class="text-sm text-paper/50 font-mono leading-relaxed">Fashion e-commerce featuring Habesha collections with social media integration, responsive design and seamless shopping flow.</p>
-          <div class="mt-5 pt-4 border-t border-white/10 flex gap-2 flex-wrap">
-            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">Laravel</span>
-            <span class="text-[10px] text-paper/20">·</span>
-            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">Livewire</span>
-            <span class="text-[10px] text-paper/20">·</span>
-            <span class="text-[10px] font-mono uppercase tracking-wider text-accent/60">Tailwind</span>
-          </div>
-        </div>
-      </a>
-
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
-<section class="px-8 md:px-16 py-24 max-w-7xl mx-auto">
+<section id="stack" class="px-8 md:px-16 py-24 max-w-7xl mx-auto">
   <div class="mb-16" data-reveal>
-    <div class="section-label mb-3">[ 04 — Stack ]</div>
-    <h2 class="text-4xl md:text-5xl font-display font-800 leading-none">Tools &<br><span class="text-muted">Technologies</span></h2>
+    <div class="section-label mb-3">[ 04 - Commerce Stack ]</div>
+    <h2 class="text-4xl md:text-5xl font-display font-800 leading-none">Tools &<br><span class="text-muted">Platforms</span></h2>
   </div>
   <div class="flex flex-wrap gap-3" data-reveal>
-    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">Laravel</span>
-    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">Livewire</span>
-    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">Alpine.js</span>
-    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">Tailwind CSS</span>
-    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">Vue.js</span>
-    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">React.js</span>
-    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">Python</span>
-    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">Django</span>
-    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">Filament</span>
-    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">Bootstrap</span>
-    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">HTML5 / CSS3</span>
-    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">JavaScript</span>
-    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">MySQL</span>
-    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">PostgreSQL</span>
-    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">MongoDB</span>
-    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">RESTful APIs</span>
-    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">Git</span>
-    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">Herd</span>
-    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">Vanilla PHP</span>
+    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">WooCommerce</span>
+    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">WordPress</span>
+    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">Google Merchant Centre</span>
+    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">Product Feeds</span>
+    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">Catalogue Management</span>
+    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">SEO</span>
+    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">Google Search Console</span>
+    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">GA4</span>
+    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">Inventory Management</span>
+    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">Product Data</span>
+    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">Content Updates</span>
+    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">Reporting</span>
+    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">Feed Health</span>
+    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">On-page SEO</span>
+    <span class="skill-pill font-mono text-sm border border-border px-4 py-2 rounded-sm cursor-default">Ecommerce Operations</span>
   </div>
 </section>
 
-<!-- AI TOOLS -->
 <section class="px-8 md:px-16 py-20 bg-ink text-paper border-t border-white/10">
   <div class="max-w-7xl mx-auto">
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-10" data-reveal>
       <div class="max-w-lg">
-        <div class="section-label text-paper/40 mb-3">[ AI-Augmented Development ]</div>
+        <div class="section-label text-paper/40 mb-3">[ 05 - Workflow ]</div>
         <h2 class="text-3xl md:text-4xl font-display font-800 leading-tight mb-5">
-          I also leverage<br><span class="text-accent">AI Agents</span> when needed.
+          I also support<br><span class="text-accent">operations and reporting</span>.
         </h2>
         <p class="font-mono text-sm text-paper/60 leading-relaxed">
-          Beyond traditional development, I'm comfortable working alongside modern AI coding agents — using tools like <span class="text-accent">OpenAI Codex</span> and <span class="text-accent">Claude Code</span> to accelerate development, scaffold complex features, and maintain high code quality. I know when to leverage AI and when human judgment matters most.
+          Beyond store management, I stay close to the data that drives ecommerce decisions - feed diagnostics, catalogue hygiene, search visibility, product performance, and platform health.
         </p>
       </div>
       <div class="flex flex-col gap-4 min-w-[240px]">
         <div class="flex items-center gap-4 border border-white/10 rounded-lg p-4 hover:border-accent/40 transition-colors group">
-          <div class="w-10 h-10 rounded-md bg-accent/10 flex items-center justify-center text-accent font-mono text-lg group-hover:bg-accent/20 transition-colors">⚡</div>
+          <div class="w-10 h-10 rounded-md bg-accent/10 flex items-center justify-center text-accent font-mono text-lg group-hover:bg-accent/20 transition-colors">W</div>
           <div>
-            <div class="font-display font-700 text-sm text-paper">OpenAI Codex</div>
-            <div class="font-mono text-xs text-paper/40 mt-0.5">AI pair programming agent</div>
+            <div class="font-display font-700 text-sm text-paper">WooCommerce</div>
+            <div class="font-mono text-xs text-paper/40 mt-0.5">Storefronts and product management</div>
           </div>
         </div>
         <div class="flex items-center gap-4 border border-white/10 rounded-lg p-4 hover:border-accent/40 transition-colors group">
-          <div class="w-10 h-10 rounded-md bg-accent/10 flex items-center justify-center text-accent font-mono text-lg group-hover:bg-accent/20 transition-colors">◆</div>
+          <div class="w-10 h-10 rounded-md bg-accent/10 flex items-center justify-center text-accent font-mono text-lg group-hover:bg-accent/20 transition-colors">G</div>
           <div>
-            <div class="font-display font-700 text-sm text-paper">Claude Code</div>
-            <div class="font-mono text-xs text-paper/40 mt-0.5">Agentic coding & reasoning</div>
+            <div class="font-display font-700 text-sm text-paper">Google Merchant Centre</div>
+            <div class="font-mono text-xs text-paper/40 mt-0.5">Feed optimisation and product visibility</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 border border-white/10 rounded-lg p-4 hover:border-accent/40 transition-colors group">
+          <div class="w-10 h-10 rounded-md bg-accent/10 flex items-center justify-center text-accent font-mono text-lg group-hover:bg-accent/20 transition-colors">S</div>
+          <div>
+            <div class="font-display font-700 text-sm text-paper">SEO & Analytics</div>
+            <div class="font-mono text-xs text-paper/40 mt-0.5">Search visibility, reporting, and growth signals</div>
           </div>
         </div>
       </div>
@@ -561,54 +558,44 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="px-8 md:px-16 py-24 bg-ink text-paper">
   <div class="max-w-7xl mx-auto text-center">
-    <div class="section-label text-paper/40 mb-6" data-reveal>[ 05 — Contact ]</div>
+    <div class="section-label text-paper/40 mb-6" data-reveal>[ 06 - Contact ]</div>
     <h2 class="text-5xl md:text-7xl font-display font-800 leading-none mb-8" data-reveal>
-      Let's Build<br>
-      <span class="text-accent">Something.</span>
+      Let's Grow<br>
+      <span class="text-accent">Ecommerce.</span>
     </h2>
     <p class="text-paper/50 font-mono text-sm max-w-sm mx-auto mb-12" data-reveal>
-      Open to new opportunities, freelance projects, and collaborations.
+      Open to ecommerce management opportunities, catalogue support, feed optimisation, and growth-focused collaboration.
     </p>
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4" data-reveal>
-      <a href="mailto:surafelkaleab68@gmail.com"
-         class="bg-accent text-ink font-display font-700 px-8 py-4 text-sm uppercase tracking-widest hover:bg-paper transition-all duration-300 rounded-sm">
-        surafelkaleab68@gmail.com
+      <a href="mailto:tibebdl@gmail.com" class="bg-accent text-ink font-display font-700 px-8 py-4 text-sm uppercase tracking-widest hover:bg-paper transition-all duration-300 rounded-sm">
+        tibebdl@gmail.com
       </a>
-      <a href="https://linkedin.com/in/surafel-kaleab" target="_blank"
-         class="border border-paper/30 text-paper font-mono text-sm px-8 py-4 uppercase tracking-widest hover:border-accent hover:text-accent transition-all duration-300 rounded-sm">
-        LinkedIn ↗
+      <a href="#projects" class="border border-paper/30 text-paper font-mono text-sm px-8 py-4 uppercase tracking-widest hover:border-accent hover:text-accent transition-all duration-300 rounded-sm">
+        View Work
       </a>
-      <!-- <a href="https://github.com/SuraKal" target="_blank"
-         class="border border-paper/30 text-paper font-mono text-sm px-8 py-4 uppercase tracking-widest hover:border-accent hover:text-accent transition-all duration-300 rounded-sm">
-        GitHub ↗
-      </a> -->
-      <a href="assets/Surafel Resume.pdf" download
-         class="border border-accent text-accent font-mono text-sm px-8 py-4 uppercase tracking-widest hover:bg-accent hover:text-ink transition-all duration-300 rounded-sm">
-        ↓ Resume
+      <a href="assets/Tibebu CV.pdf" download class="border border-accent text-accent font-mono text-sm px-8 py-4 uppercase tracking-widest hover:bg-accent hover:text-ink transition-all duration-300 rounded-sm">
+        Download CV
       </a>
     </div>
-    <div class="mt-6 font-mono text-paper/30 text-sm" data-reveal>+251 977 421 152 · Addis Ababa, Ethiopia</div>
+    <div class="mt-6 font-mono text-paper/30 text-sm" data-reveal>Tibebu - OTW Trading focus</div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="bg-ink border-t border-white/10 px-8 py-6 flex flex-col sm:flex-row items-center justify-between">
-  <span class="font-display font-800 text-paper text-sm tracking-widest">SK<span class="text-accent">.</span></span>
+  <span class="font-display font-800 text-paper text-sm tracking-widest">TB<span class="text-accent">.</span></span>
   <div class="flex items-center gap-6 mt-2 sm:mt-0">
-    <!-- <a href="https://github.com/SuraKal" target="_blank" class="font-mono text-paper/30 text-xs hover:text-accent transition-colors">GitHub ↗</a> -->
-    <a href="https://linkedin.com/in/surafel-kaleab" target="_blank" class="font-mono text-paper/30 text-xs hover:text-accent transition-colors">LinkedIn ↗</a>
-    <span class="font-mono text-paper/30 text-xs">© 2026 Surafel Kaleab</span>
+    <a href="mailto:tibebdl@gmail.com" class="font-mono text-paper/30 text-xs hover:text-accent transition-colors">tibebdl@gmail.com</a>
+    <span class="font-mono text-paper/30 text-xs">© 2026 Tibebu</span>
   </div>
 </footer>
 
 <script>
-  // Cursor
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
-  document.addEventListener('mousemove', e => {
+
+  document.addEventListener('mousemove', (e) => {
     cursor.style.left = e.clientX + 'px';
     cursor.style.top = e.clientY + 'px';
     setTimeout(() => {
@@ -616,12 +603,18 @@ tailwind.config = {
       ring.style.top = e.clientY + 'px';
     }, 60);
   });
-  document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => { ring.style.transform = 'translate(-50%,-50%) scale(1.8)'; ring.style.borderColor = '#c8f04c'; });
-    el.addEventListener('mouseleave', () => { ring.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.borderColor = '#0d0d0d'; });
+
+  document.querySelectorAll('a, button').forEach((el) => {
+    el.addEventListener('mouseenter', () => {
+      ring.style.transform = 'translate(-50%,-50%) scale(1.8)';
+      ring.style.borderColor = '#c8f04c';
+    });
+    el.addEventListener('mouseleave', () => {
+      ring.style.transform = 'translate(-50%,-50%) scale(1)';
+      ring.style.borderColor = '#0d0d0d';
+    });
   });
 
-  // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
@@ -629,7 +622,8 @@ tailwind.config = {
       }
     });
   }, { threshold: 0.1 });
-  document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
 </script>
 
 <style>
